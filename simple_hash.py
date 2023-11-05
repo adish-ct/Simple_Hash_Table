@@ -3,8 +3,15 @@ class Hash_Table:
     def __init__(self):
         self.table = [None] * 10
 
+    def generate_key(self, key):
+        key_value = 0
+        for i in key:
+            key_value = key_value + ord(i)
+        return key_value
+
     def hash_key(self, key):
-        hash_index = (key * 23) % 10
+        key_value = generate_key(key)
+        hash_index = (key_value * 23) % 10
         return hash_index
 
     def insert(self, key, value):
